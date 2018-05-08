@@ -10,7 +10,7 @@ namespace ConferenceFunctions
 {
     public static class ConferenceApi
     {
-        [FunctionName("list")]
+        [FunctionName("ListSessions")]
         public static IEnumerable<SessionOverview> ListSessions(
             [HttpTrigger(AuthorizationLevel.Anonymous, "GET", Route = "sessions")]
             HttpRequestMessage req,
@@ -23,7 +23,7 @@ namespace ConferenceFunctions
             return sessions;
         }
 
-        [FunctionName("details")]
+        [FunctionName("GetSessionDetails")]
         public static SessionDetails GetSession(
             [HttpTrigger(AuthorizationLevel.Anonymous, "GET", Route = "sessions/{id}")]
             HttpRequestMessage req,
@@ -36,7 +36,7 @@ namespace ConferenceFunctions
             return session;
         }
 
-        [FunctionName("add")]
+        [FunctionName("AddSession")]
         public static async Task<HttpResponseMessage> AddSession(
             [HttpTrigger(AuthorizationLevel.Anonymous, "POST", Route = "sessions")]
             SessionDetails session,
