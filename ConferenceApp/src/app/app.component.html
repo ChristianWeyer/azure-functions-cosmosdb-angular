@@ -1,0 +1,16 @@
+<div class="container-fluid m-3">
+  <h2>Conference sessions</h2>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Title</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let session of sessions">
+      <td>{{ session.title }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
