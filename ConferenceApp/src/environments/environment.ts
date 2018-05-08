@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  serviceWorker: false,
   baseApiUrl: 'https://conferencesdemo.azurewebsites.net/api/sessions/'
 };
 
