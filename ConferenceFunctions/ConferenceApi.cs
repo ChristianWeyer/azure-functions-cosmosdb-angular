@@ -14,7 +14,7 @@ namespace ConferenceFunctions
         public static IEnumerable<SessionOverview> ListSessions(
             [HttpTrigger(AuthorizationLevel.Anonymous, "GET", Route = "sessions")]
             HttpRequestMessage req,
-            [DocumentDB("conferencesdemo", "sessions", SqlQuery = "SELECT c.id, c.title FROM c", ConnectionStringSetting = "ConferencesDb")]
+            [DocumentDB("conferencesdemo", "sessionsx", SqlQuery = "SELECT c.id, c.title FROM c", ConnectionStringSetting = "ConferencesDb")]
             IEnumerable<SessionOverview> sessions,
             TraceWriter log)
         {
@@ -27,7 +27,7 @@ namespace ConferenceFunctions
         public static SessionDetails GetSession(
             [HttpTrigger(AuthorizationLevel.Anonymous, "GET", Route = "sessions/{id}")]
             HttpRequestMessage req,
-            [DocumentDB("conferencesdemo", "sessions", Id = "{id}", ConnectionStringSetting = "ConferencesDb")]
+            [DocumentDB("conferencesdemo", "sessionsx", Id = "{id}", ConnectionStringSetting = "ConferencesDb")]
             SessionDetails session,
             TraceWriter log)
         {
@@ -40,7 +40,7 @@ namespace ConferenceFunctions
         public static async Task<HttpResponseMessage> AddSession(
             [HttpTrigger(AuthorizationLevel.Anonymous, "POST", Route = "sessions")]
             SessionDetails session,
-            [DocumentDB("conferencesdemo", "sessions", Id="Id", ConnectionStringSetting = "ConferencesDb")]
+            [DocumentDB("conferencesdemo", "sessionsx", Id="Id", ConnectionStringSetting = "ConferencesDb")]
             IAsyncCollector<SessionDetails> documents,
             TraceWriter log)
         {
